@@ -1,183 +1,99 @@
 /*
  * Design: Warm Futurism — Human-Centred Technology
- * Hero: Full-viewport with animated flowing SVG waves in warm tones.
- * Multiple layered wave paths animate independently with different speeds.
+ * Hero: Full-viewport with original generated abstract background image.
+ * The image has a slow, breathing scale + pan animation for a living feel.
+ * Floating gradient overlays drift independently for layered depth.
  * Large Outfit headline, DM Sans subtitle. Spring-based entrance animations.
- * Amber CTA button, teal secondary. Floating organic blob accents.
+ * Amber CTA button, teal secondary.
  */
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
-function AnimatedWaves() {
-  return (
-    <div className="absolute inset-0 overflow-hidden">
-      {/* Base warm gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cream via-cream-dark/60 to-cream" />
-
-      {/* Animated wave layers — each moves at a different speed for depth */}
-      <svg
-        className="absolute inset-0 w-full h-full"
-        viewBox="0 0 1440 900"
-        preserveAspectRatio="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* Wave 1 — deep teal, slow, back layer */}
-        <motion.path
-          d="M-100,600 C200,500 400,700 700,550 C1000,400 1200,650 1540,500 L1540,900 L-100,900 Z"
-          fill="oklch(0.48 0.1 195 / 0.06)"
-          animate={{
-            d: [
-              "M-100,600 C200,500 400,700 700,550 C1000,400 1200,650 1540,500 L1540,900 L-100,900 Z",
-              "M-100,550 C200,650 400,500 700,600 C1000,500 1200,550 1540,600 L1540,900 L-100,900 Z",
-              "M-100,620 C200,480 400,680 700,520 C1000,450 1200,620 1540,530 L1540,900 L-100,900 Z",
-              "M-100,600 C200,500 400,700 700,550 C1000,400 1200,650 1540,500 L1540,900 L-100,900 Z",
-            ],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
-        {/* Wave 2 — amber glow, medium speed */}
-        <motion.path
-          d="M-100,650 C150,550 350,750 650,600 C950,450 1150,700 1540,580 L1540,900 L-100,900 Z"
-          fill="oklch(0.78 0.15 75 / 0.07)"
-          animate={{
-            d: [
-              "M-100,650 C150,550 350,750 650,600 C950,450 1150,700 1540,580 L1540,900 L-100,900 Z",
-              "M-100,680 C150,720 350,560 650,680 C950,550 1150,600 1540,650 L1540,900 L-100,900 Z",
-              "M-100,620 C150,580 350,720 650,560 C950,500 1150,680 1540,600 L1540,900 L-100,900 Z",
-              "M-100,650 C150,550 350,750 650,600 C950,450 1150,700 1540,580 L1540,900 L-100,900 Z",
-            ],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
-        {/* Wave 3 — teal highlight, faster, mid layer */}
-        <motion.path
-          d="M-100,700 C200,620 450,780 720,660 C990,540 1200,720 1540,640 L1540,900 L-100,900 Z"
-          fill="oklch(0.58 0.08 195 / 0.08)"
-          animate={{
-            d: [
-              "M-100,700 C200,620 450,780 720,660 C990,540 1200,720 1540,640 L1540,900 L-100,900 Z",
-              "M-100,720 C200,760 450,640 720,730 C990,620 1200,660 1540,710 L1540,900 L-100,900 Z",
-              "M-100,680 C200,640 450,760 720,640 C990,570 1200,740 1540,660 L1540,900 L-100,900 Z",
-              "M-100,700 C200,620 450,780 720,660 C990,540 1200,720 1540,640 L1540,900 L-100,900 Z",
-            ],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
-        {/* Wave 4 — warm amber, front layer */}
-        <motion.path
-          d="M-100,750 C180,680 400,800 680,720 C960,640 1180,780 1540,700 L1540,900 L-100,900 Z"
-          fill="oklch(0.78 0.15 75 / 0.05)"
-          animate={{
-            d: [
-              "M-100,750 C180,680 400,800 680,720 C960,640 1180,780 1540,700 L1540,900 L-100,900 Z",
-              "M-100,770 C180,800 400,700 680,770 C960,700 1180,720 1540,760 L1540,900 L-100,900 Z",
-              "M-100,740 C180,700 400,790 680,700 C960,660 1180,770 1540,720 L1540,900 L-100,900 Z",
-              "M-100,750 C180,680 400,800 680,720 C960,640 1180,780 1540,700 L1540,900 L-100,900 Z",
-            ],
-          }}
-          transition={{
-            duration: 9,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
-        {/* Wave 5 — subtle cream/white, very front */}
-        <motion.path
-          d="M-100,800 C250,740 500,830 750,770 C1000,710 1250,800 1540,760 L1540,900 L-100,900 Z"
-          fill="oklch(0.97 0.01 90 / 0.6)"
-          animate={{
-            d: [
-              "M-100,800 C250,740 500,830 750,770 C1000,710 1250,800 1540,760 L1540,900 L-100,900 Z",
-              "M-100,810 C250,830 500,760 750,810 C1000,760 1250,770 1540,800 L1540,900 L-100,900 Z",
-              "M-100,790 C250,760 500,820 750,760 C1000,730 1250,810 1540,770 L1540,900 L-100,900 Z",
-              "M-100,800 C250,740 500,830 750,770 C1000,710 1250,800 1540,760 L1540,900 L-100,900 Z",
-            ],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </svg>
-
-      {/* Floating orbs for extra depth */}
-      <motion.div
-        className="absolute w-80 h-80 rounded-full bg-amber/8 blur-3xl"
-        animate={{
-          x: [0, 40, -20, 0],
-          y: [0, -30, 20, 0],
-          scale: [1, 1.1, 0.95, 1],
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        style={{ top: "10%", right: "5%" }}
-      />
-      <motion.div
-        className="absolute w-96 h-96 rounded-full bg-teal/6 blur-3xl"
-        animate={{
-          x: [0, -30, 25, 0],
-          y: [0, 20, -25, 0],
-          scale: [1, 0.95, 1.08, 1],
-        }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-        style={{ bottom: "15%", left: "0%" }}
-      />
-      <motion.div
-        className="absolute w-64 h-64 rounded-full bg-amber/5 blur-3xl"
-        animate={{
-          x: [0, 20, -15, 0],
-          y: [0, -20, 15, 0],
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        style={{ top: "40%", left: "30%" }}
-      />
-
-      {/* Subtle particle dots */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1.5 h-1.5 rounded-full bg-teal/20"
-          animate={{
-            y: [0, -60 - i * 10, 0],
-            opacity: [0.2, 0.6, 0.2],
-          }}
-          transition={{
-            duration: 6 + i * 1.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: i * 0.8,
-          }}
-          style={{
-            left: `${15 + i * 14}%`,
-            top: `${50 + (i % 3) * 12}%`,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
+const HERO_BG =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310419663026739184/g2KhUzpjQSpYo2KDcsUD7g/hero-bg-HUUwRrjYeC3D379ZDH7TCN.webp";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Animated wave background */}
-      <AnimatedWaves />
+      {/* Animated background image — slow zoom & drift */}
+      <motion.div
+        className="absolute inset-0"
+        animate={{
+          scale: [1, 1.08, 1.04, 1.1, 1],
+          x: [0, -15, 10, -5, 0],
+          y: [0, -10, 5, -8, 0],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <img
+          src={HERO_BG}
+          alt=""
+          className="w-full h-full object-cover scale-110"
+          loading="eager"
+        />
+      </motion.div>
+
+      {/* Warm overlay gradients — these stay fixed so text is always readable */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cream/85 via-cream/70 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-cream via-transparent to-transparent" />
+
+      {/* Floating colour blobs that drift independently */}
+      <motion.div
+        className="absolute w-[500px] h-[500px] rounded-full bg-amber/8 blur-3xl"
+        animate={{
+          x: [0, 60, -30, 0],
+          y: [0, -40, 30, 0],
+          scale: [1, 1.15, 0.9, 1],
+        }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        style={{ top: "5%", right: "0%" }}
+      />
+      <motion.div
+        className="absolute w-[400px] h-[400px] rounded-full bg-teal/6 blur-3xl"
+        animate={{
+          x: [0, -40, 35, 0],
+          y: [0, 25, -30, 0],
+          scale: [1, 0.92, 1.1, 1],
+        }}
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+        style={{ bottom: "10%", left: "-5%" }}
+      />
+      <motion.div
+        className="absolute w-72 h-72 rounded-full bg-amber/5 blur-3xl"
+        animate={{
+          x: [0, 25, -20, 0],
+          y: [0, -20, 18, 0],
+          opacity: [0.5, 0.8, 0.4, 0.5],
+        }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        style={{ top: "35%", left: "25%" }}
+      />
+
+      {/* Subtle particle dots floating upward */}
+      {[...Array(5)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-1.5 h-1.5 rounded-full bg-teal/15"
+          animate={{
+            y: [0, -50 - i * 15, 0],
+            opacity: [0.15, 0.5, 0.15],
+          }}
+          transition={{
+            duration: 7 + i * 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: i * 1.2,
+          }}
+          style={{
+            left: `${20 + i * 15}%`,
+            top: `${45 + (i % 3) * 10}%`,
+          }}
+        />
+      ))}
 
       {/* Content */}
       <div className="container relative z-10 pt-28 pb-20 md:pt-32 md:pb-28">
@@ -242,6 +158,21 @@ export default function Hero() {
             </a>
           </motion.div>
         </div>
+      </div>
+
+      {/* Bottom wave divider */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg
+          viewBox="0 0 1440 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full"
+        >
+          <path
+            d="M0 40C240 70 480 10 720 40C960 70 1200 10 1440 40V80H0V40Z"
+            className="fill-cream"
+          />
+        </svg>
       </div>
     </section>
   );
