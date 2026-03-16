@@ -4,8 +4,14 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function AuditPage() {
+  usePageMeta({
+    title: "Free Automation Audit | Expansion Marketing",
+    description: "Get a free 20-minute review of your business operations. Identify automation opportunities that could save your team hours every week.",
+    canonical: "https://expansionmarketing.co.uk/audit",
+  });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
